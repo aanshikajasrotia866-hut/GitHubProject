@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Academy - Quality Education for Tomorrow's Leaders</title>
+    <style>
+        /* ========================
+           GLOBAL STYLES & RESET
+           ======================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        /* ========================
+           UTILITY CLASSES
+           ======================== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background-color: #0056b3;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #003d7a;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 86, 179, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(108, 117, 125, 0.3);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h1, h2, h3 {
+            color: #0056b3;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #0056b3, #007bff);
+            margin: 15px auto 0;
+        }
+
+        /* ========================
+           HEADER & NAVIGATION
+           ======================== */
+        header {
+            background: linear-gradient(135deg, #0056b3 0%, #003d7a 100%);
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0056b3;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #ffb700;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ffb700;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 5px 0;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        /* ========================
+           HERO / HOME SECTION
+           ======================== */
+        .hero {
+            background: linear-gradient(rgba(0, 86, 179, 0.7), rgba(0, 61, 122, 0.7)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="1200" height="600" fill="%230056b3"/><rect width="1200" height="600" fill="url(%23grid)"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 150px 0;
+            text-align: center;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content h1 {
+            color: white;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease-out;
+            opacity: 0.95;
+        }
+
+        .hero-content .btn {
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ========================
+           ABOUT SECTION
+           ======================== */
+        #about {
+            background-color: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #0056b3;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .about-features {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .feature-item {
+            background: #f0f7ff;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #0056b3;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(0, 86, 179, 0.1);
+        }
+
+        .feature-item h4 {
+            color: #0056b3;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .feature-item p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        .about-image {
+            background: linear-gradient(135deg, #0056b3 0%, #007bff 100%);
+            border-radius: 10px;
+            padding: 40px;
+            color: white;
+            text-align: center;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0, 86, 179, 0.2);
+        }
+
+        .about-image-content {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .about-image p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0;
+        }
+
+        /* ========================
+           COURSES SECTION
+           ======================== */
+        #courses {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .course-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 86, 179, 0.2);
+        }
+
+        .course-header {
+            background: linear-gradient(135deg, #0056b3 0%, #007bff 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            min-height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .course-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .course-header h3 {
+            color: white;
+            margin-bottom: 5px;
+            font-size: 1.3rem;
+        }
+
+        .course-body {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .course-body p {
+            color: #666;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .course-details {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .course-details strong {
+            color: #0056b3;
+        }
+
+        .course-body .btn {
+            width: 100%;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        /* ========================
+           CONTACT SECTION
+           ======================== */
+        #contact {
+            background: white;
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .info-item {
+            display: flex;
+            gap: 20px;
+        }
+
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #0056b3 0%, #007bff 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .info-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .info-content p {
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #0056b3;
+            box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-error {
+            color: #dc3545;
+            font-size: 0.85rem;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .form-group.error input,
+        .form-group.error textarea {
+            border-color: #dc3545;
+        }
+
+        .form-group.error .form-error {
+            display: block;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #0056b3 0%, #003d7a 100%);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 86, 179, 0.3);
+        }
+
+        .form-submit:active {
+            transform: translateY(0);
+        }
+
+        .form-success {
+            display: none;
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #c3e6cb;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        .form-success.show {
+            display: block;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ========================
+           FOOTER
+           ======================== */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+
+        footer p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+        }
+
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #ffb700;
+        }
+
+        /* ========================
+           RESPONSIVE DESIGN
+           ======================== */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            nav ul {
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background: #003d7a;
+                gap: 0;
+                display: none;
+                padding: 20px 0;
+                list-style: none;
+                margin: 0;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            nav ul li {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                padding: 0;
+            }
+
+            nav ul a {
+                display: block;
+                padding: 15px 20px;
+                border: none;
+            }
+
+            nav a::after {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .hero {
+                padding: 100px 0;
+                min-height: 400px;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            section {
+                padding: 50px 0;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                min-height: 300px;
+            }
+
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero-content h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero-content p {
+                font-size: 0.9rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            h2::after {
+                width: 60px;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+
+            .hero {
+                padding: 80px 0;
+                min-height: 300px;
+            }
+
+            nav ul {
+                top: 65px;
+            }
+
+            .header-content {
+                padding: 0 10px;
+            }
+
+            .feature-item {
+                padding: 15px;
+            }
+
+            .course-header {
+                padding: 20px 15px;
+            }
+        }
+
+        /* ========================
+           ANIMATIONS & EFFECTS
+           ======================== */
+        .welcome-button {
+            margin: 20px 0;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(0, 86, 179, 0.7);
+            }
+            50% {
+                box-shadow: 0 0 0 10px rgba(0, 86, 179, 0);
+            }
+        }
+
+        .scroll-fade {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+
+        .scroll-fade.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- ========================
+         HEADER / NAVIGATION
+         ======================== -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">EA</div>
+                    <span>Elite Academy</span>
+                </div>
+                <nav>
+                    <ul id="navMenu">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#courses">Courses</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========================
+         HERO / HOME SECTION
+         ======================== -->
+    <section id="home" class="hero">
+        <div class="container" style="width: 100%;">
+            <div class="hero-content">
+                <h1>Welcome to Elite Academy</h1>
+                <p>Empowering minds, shaping futures, building tomorrow's leaders</p>
+                <button class="btn btn-primary welcome-button" onclick="showWelcomeMessage()">
+                    🎓 Explore Our Programs
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================
+         ABOUT SECTION
+         ======================== -->
+    <section id="about">
+        <div class="container">
+            <h2>About Elite Academy</h2>
+            <div class="about-content">
+                <div class="about-text scroll-fade">
+                    <h3>Educating Excellence Since 2010</h3>
+                    <p>
+                        Elite Academy is dedicated to providing world-class education that combines 
+                        traditional values with modern pedagogical approaches. Our commitment is to 
+                        nurture critical thinkers, creative problem-solvers, and responsible global citizens.
+                    </p>
+                    <p>
+                        With a faculty of experienced educators and state-of-the-art facilities, 
+                        we ensure every student receives personalized attention and guidance to reach 
+                        their full potential.
+                    </p>
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <h4>📚 Expert Faculty</h4>
+                            <p>Highly qualified teachers with international experience</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>🏆 Excellence</h4>
+                            <p>Proven track record of academic achievements</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>🌍 Global Perspective</h4>
+                            <p>International curriculum and cultural exchange programs</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>💡 Innovation</h4>
+                            <p>Modern teaching methods and digital learning tools</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image scroll-fade">
+                    <div class="about-image-content">
+                        <div style="font-size: 4rem; margin-bottom: 20px;">🎓</div>
+                        <div>
+                            <div style="font-size: 2.5rem; font-weight: bold; margin-bottom: 10px;">1000+</div>
+                            <p>Students Enrolled</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================
+         COURSES SECTION
+         ======================== -->
+    <section id="courses">
+        <div class="container">
+            <h2>Our Courses</h2>
+            <div class="courses-grid">
+                <!-- Science Course -->
+                <div class="course-card scroll-fade">
+                    <div class="course-header">
+                        <div class="course-icon">🔬</div>
+                        <h3>Advanced Science</h3>
+                    </div>
+                    <div class="course-body">
+                        <p>
+                            Master the fundamentals and advanced concepts in Physics, Chemistry, 
+                            and Biology through hands-on laboratory work and interactive demonstrations.
+                        </p>
+                        <div class="course-details">
+                            <strong>Duration:</strong> 12 months<br>
+                            <strong>Level:</strong> Intermediate to Advanced<br>
+                            <strong>Students per class:</strong> 25-30
+                        </div>
+                        <button class="btn btn-primary">Enroll Now</button>
+                    </div>
+                </div>
+
+                <!-- Mathematics Course -->
+                <div class="course-card scroll-fade">
+                    <div class="course-header">
+                        <div class="course-icon">🧮</div>
+                        <h3>Mathematics Excellence</h3>
+                    </div>
+                    <div class="course-body">
+                        <p>
+                            Develop strong problem-solving skills and mathematical reasoning through 
+                            engaging lessons covering Algebra, Geometry, Calculus, and Statistics.
+                        </p>
+                        <div class="course-details">
+                            <strong>Duration:</strong> 12 months<br>
+                            <strong>Level:</strong> All Levels<br>
+                            <strong>Students per class:</strong> 20-25
+                        </div>
+                        <button class="btn btn-primary">Enroll Now</button>
+                    </div>
+                </div>
+
+                <!-- Languages Course -->
+                <div class="course-card scroll-fade">
+                    <div class="course-header">
+                        <div class="course-icon">🌐</div>
+                        <h3>Language & Literature</h3>
+                    </div>
+                    <div class="course-body">
+                        <p>
+                            Enhance communication skills and cultural awareness through comprehensive 
+                            study of English, Spanish, French, and Mandarin with native speakers.
+                        </p>
+                        <div class="course-details">
+                            <strong>Duration:</strong> 10 months<br>
+                            <strong>Level:</strong> Beginner to Advanced<br>
+                            <strong>Students per class:</strong> 15-20
+                        </div>
+                        <button class="btn btn-primary">Enroll Now</button>
+                    </div>
+                </div>
+
+                <!-- Technology Course -->
+                <div class="course-card scroll-fade">
+                    <div class="course-header">
+                        <div class="course-icon">💻</div>
+                        <h3>Digital Technology</h3>
+                    </div>
+                    <div class="course-body">
+                        <p>
+                            Learn cutting-edge programming, web development, and digital design skills. 
+                            Build real-world projects and prepare for IT careers.
+                        </p>
+                        <div class="course-details">
+                            <strong>Duration:</strong> 10 months<br>
+                            <strong>Level:</strong> Beginner to Intermediate<br>
+                            <strong>Students per class:</strong> 20-25
+                        </div>
+                        <button class="btn btn-primary">Enroll Now</button>
+                    </div>
+                </div>
+
+                <!-- Arts Course -->
+                <div class="course-card scroll-fade">
+                    <div class="course-header">
+                        <div class="course-icon">🎨</div>
+                        <h3>Creative Arts</h3>
+                    </div>
+                    <div class="course-body">
+                        <p>
+                            Unleash your creativity through visual arts, music, drama, and design. 
+                            Express yourself and develop unique artistic perspectives.
+                        </p>
+                        <div class="course-details">
+                            <strong>Duration:</strong> 12 months<br>
+                            <strong>Level:</strong> All Levels<br>
+                            <strong>Students per class:</strong> 20 max
+                        </div>
+                        <button class="btn btn-primary">Enroll Now</button>
+                    </div>
+                </div>
+
+                <!-- Physical Education Course -->
+                <div class="course-card scroll-fade">
+                    <div class="course-header">
+                        <div class="course-icon">⚽</div>
+                        <h3>Sports & Wellness</h3>
+                    </div>
+                    <div class="course-body">
+                        <p>
+                            Build physical fitness, teamwork, and leadership through diverse sports 
+                            programs. Achieve personal and athletic excellence.
+                        </p>
+                        <div class="course-details">
+                            <strong>Duration:</strong> 12 months<br>
+                            <strong>Level:</strong> All Levels<br>
+                            <strong>Students per class:</strong> 30-35
+                        </div>
+                        <button class="btn btn-primary">Enroll Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================
+         CONTACT SECTION
+         ======================== -->
+    <section id="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-wrapper">
+                <!-- Contact Information -->
+                <div class="contact-info scroll-fade">
+                    <div class="info-item">
+                        <div class="info-icon">📍</div>
+                        <div class="info-content">
+                            <h3>Address</h3>
+                            <p>123 Education Street, Learning City, LC 12345</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">📞</div>
+                        <div class="info-content">
+                            <h3>Phone</h3>
+                            <p>+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">✉️</div>
+                        <div class="info-content">
+                            <h3>Email</h3>
+                            <p>info@eliteacademy.edu</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">🕐</div>
+                        <div class="info-content">
+                            <h3>Hours</h3>
+                            <p>Monday - Friday: 8:00 AM - 5:00 PM<br>Saturday: 9:00 AM - 2:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="scroll-fade">
+                    <form id="contactForm">
+                        <div class="form-success" id="successMessage">
+                            ✅ Thank you! Your message has been sent successfully. We'll get back to you soon!
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                            <span class="form-error">Please enter your name</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                            <span class="form-error">Please enter a valid email address</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <input type="text" id="subject" name="subject" placeholder="What is this about?" required>
+                            <span class="form-error">Please enter a subject</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" placeholder="Tell us more about your inquiry..." required></textarea>
+                            <span class="form-error">Please enter your message</span>
+                        </div>
+
+                        <button type="submit" class="form-submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================
+         FOOTER
+         ======================== -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Elite Academy. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <!-- ========================
+         JAVASCRIPT
+         ======================== -->
+    <script>
+        // ========================
+        // MOBILE NAVIGATION TOGGLE
+        // ========================
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        /* Toggle mobile menu when hamburger is clicked */
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        /* Close menu when a nav link is clicked */
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // ========================
+        // CONTACT FORM VALIDATION
+        // ========================
+        /* Function to validate email format */
+        function validateEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        /* Function to clear previous error messages */
+        function clearErrors() {
+            document.querySelectorAll('.form-group').forEach(group => {
+                group.classList.remove('error');
+            });
+        }
+
+        /* Main form validation and submission handler */
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Clear previous errors
+            clearErrors();
+
+            // Get form values
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const subject = document.getElementById('subject').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            let hasError = false;
+
+            // Validate name field
+            if (!name) {
+                document.getElementById('name').parentElement.classList.add('error');
+                hasError = true;
+            }
+
+            // Validate email field
+            if (!email || !validateEmail(email)) {
+                document.getElementById('email').parentElement.classList.add('error');
+                hasError = true;
+            }
+
+            // Validate subject field
+            if (!subject) {
+                document.getElementById('subject').parentElement.classList.add('error');
+                hasError = true;
+            }
+
+            // Validate message field
+            if (!message) {
+                document.getElementById('message').parentElement.classList.add('error');
+                hasError = true;
+            }
+
+            // If all validations pass, show success message
+            if (!hasError) {
+                const successMessage = document.getElementById('successMessage');
+                successMessage.classList.add('show');
+
+                // Clear form fields
+                document.getElementById('contactForm').reset();
+
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.classList.remove('show');
+                }, 5000);
+
+                // Optional: Log form data (in real app, send to server)
+                console.log('Form Data:', { name, email, subject, message });
+            }
+        });
+
+        // ========================
+        // WELCOME MESSAGE BUTTON
+        // ========================
+        /* Interactive button that displays a welcome message */
+        function showWelcomeMessage() {
+            alert('🎉 Welcome to Elite Academy!\n\nWe are thrilled to have you here. This is where education meets excellence!\n\nExplore our courses and discover your potential.');
+        }
+
+        // ========================
+        // SCROLL FADE ANIMATION
+        // ========================
+        /* Observe elements and add fade-in animation as they become visible */
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        /* Apply observer to all scroll-fade elements */
+        document.querySelectorAll('.scroll-fade').forEach(element => {
+            observer.observe(element);
+        });
+
+        // ========================
+        // SMOOTH SCROLL SUPPORT
+        // ========================
+        /* Enhance smooth scrolling for browsers that don't support it natively */
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    // Browser's native smooth scroll is used due to 'scroll-behavior: smooth' in CSS
+                    // This event listener is just for reference
+                }
+            });
+        });
+
+        // ========================
+        // REAL-TIME EMAIL VALIDATION
+        // ========================
+        /* Provide real-time feedback as user types email */
+        document.getElementById('email')?.addEventListener('input', function() {
+            const emailGroup = this.parentElement;
+            if (this.value && validateEmail(this.value)) {
+                emailGroup.classList.remove('error');
+            }
+        });
+
+        // ========================
+        // WELCOME MESSAGE ON PAGE LOAD
+        // ========================
+        /* Optional: Show a brief console welcome message */
+        window.addEventListener('load', () => {
+            console.log('%c🎓 Welcome to Elite Academy', 'color: #0056b3; font-size: 20px; font-weight: bold;');
+            console.log('%cExplore our courses and features. Happy learning!', 'color: #666; font-size: 14px;');
+        });
+    </script>
+</body>
+</html>
